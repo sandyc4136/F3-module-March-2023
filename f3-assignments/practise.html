@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body></body>
+  <script>
+    function xTime(x, y) {
+      // Write your code here
+      let count=0;
+      let timer=setInterval(() => {
+        let currentTime=new Date();
+        let hrs=currentTime.getHours();
+        let minutes=currentTime.getMinutes();
+        let seconds=currentTime.getSeconds();
+        let am_pm= "AM";
+
+        if(hrs>12){
+          hrs=hrs-12;
+          am_pm="PM";
+        }
+        console.log(`${hrs}:${minutes}:${seconds} ${am_pm}`);
+        count++;
+        if(count==y){
+          clearInterval(timer);
+        }
+
+      }, x*1000);
+    }
+
+    xTime(2, 5);
+
+  
+    /*
+    Expected Output in console example (if the current time is 7:59:41 am):
+      7:59:41 AM
+      7:59:43 AM
+      7:59:45 AM
+      7:59:47 AM
+      7:59:49 AM
+    */
+  </script>
+</html>

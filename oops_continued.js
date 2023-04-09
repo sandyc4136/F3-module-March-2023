@@ -1,0 +1,91 @@
+console.log("Oops Contd");
+
+class BankAccount {
+  #accountNumber;
+  //  To make a variable private all you need to do is add a # infront of it
+  constructor() {
+    this.name = "Avi Vashishta";
+    this.#accountNumber = "123456789012";
+  }
+
+  getAccountNumber(returnFullNumber) {
+    if (returnFullNumber) {
+      return this.#accountNumber;
+    } else {
+      return (
+        "XXXX" +
+        this.#accountNumber.slice(3, 8) +
+        "XX" +
+        this.#accountNumber.slice(-2)
+      );
+    }
+  }
+
+  #privateMethod() {
+    return "Private Details of the Account";
+  }
+}
+
+const myAccount = new BankAccount();
+// alert(
+//   "Transaction of 10/- on your account at 8:50PM from this account - " +
+//     myAccount.getAccountNumber
+// );
+// console.log(myAccount);
+// console.log("accountNumber", myAccount.accountNumber); //=> undefined
+// console.log("accountNumber#", myAccount.#accountNumber);
+// console.log(myAccount.privateMethod); //=> undefined
+// console.log(myAccount.getAccountNumber); //=> test
+// console.log(house1.#property); //=> Syntax error
+
+// PII = Personally Identifiable Information
+
+// Inheritence
+// Inheritance example
+
+class person {
+  constructor(name) {
+    this.name = name;
+    this.species = "Human";
+  }
+
+  speak() {
+    return "Person speaks native language";
+  }
+}
+
+class student extends person {
+  constructor(name, id) {
+    // super keyword for calling the above
+    // class constructor
+    super(name);
+    this.id = id;
+  }
+}
+
+class instructor extends person {
+  constructor(name, classes) {
+    // super keyword for calling the above
+    // class constructor
+    super(name);
+    this.classes = classes;
+  }
+  speak() {
+    console.log(this.species);
+    return "Speaking english";
+  }
+  parentSpeak() {
+    return super.speak();
+  }
+}
+
+// let student1 = new student("Mukul", 22);
+// console.log(student1.speak());
+
+const person1 = new person("Avi");
+// console.log("PERSON", person1);
+
+const instructor1 = new instructor("Avi", ["F1", "F3"]);
+console.log(instructor1.speak());
+// // console.log(instructor1.parentSpeak());
+// console.log("INSTRUCTOR", instructor1);

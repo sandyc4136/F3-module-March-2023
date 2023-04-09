@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Invert keys and values</title>
+  </head>
+  <body>
+    <h1>
+      Write a JavaScript function in the script tag which takes an object as
+      parameter and returns a copy of the object where the keys have become the
+      values and the values the keys.
+    </h1>
+
+    <script>
+    //   function invert_key_value(obj) {
+    //     // Write your code here
+    //     // solution 1
+    //     const invertedObj = Object.entries(obj).reduce((acc, [key, value]) => {
+    //       acc[value] = key;
+    //       return acc;
+    //     }, {});
+
+    //     // solution 2
+    //     const inverted_Obj = Object.fromEntries(
+    //       Object.entries(obj).map(([key, value]) => [value, key])
+    //     );
+
+    //     return inverted_Obj;
+    //   }
+
+      // solution 3
+      function invertObject(obj){
+        const invertedObj = {};
+
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            const value = obj[key];
+            invertedObj[value] = key;
+          }
+        }
+
+        return invertedObj;
+      }
+
+      console.log(
+        invert_key_value({ red: "#FF0000", green: "#00FF00", white: "#FFFFFF" })
+      ); // Expected output: {#FF0000: "red", #00FF00: "green", #FFFFFF: "white"}
+
+      console.log(invertObject({ red: "#FF0000", green: "#00FF00", white: "#FFFFFF" }));
+    </script>
+  </body>
+</html>
