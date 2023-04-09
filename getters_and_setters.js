@@ -2,8 +2,8 @@
 
 
 class user{
-    constructor(myName, myEmail , myPhone, myUsername , myPassword){
-        this.name=myName;
+    constructor( myEmail , myPhone, myUsername , myPassword){
+        this.name="";
         this.email=myEmail;
         this.phone=myPhone;
         this.username=myUsername;
@@ -19,11 +19,12 @@ class user{
     }
 
     set setName(myName){
-
+        this.name=myName;
     }
 }
 
-const user1=new user("sandip", "Sandyc@gmail.com", "9876543210", "punk_sandy", "helloSandy");
+const user1=new user( "Sandyc@gmail.com", "9876543210", "punk_sandy", "helloSandy");
+console.log(user1);
+user1.setName="sandip";
 console.log(user1.getNameCapital());
 console.log(user1.getName);
-console.log(user1);
